@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones - Los Naranjos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (igual que en index.html) -->
+    <header class="bg-amber-50 border-b">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <svg class="h-8 w-8 text-amber-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                <h1 class="text-2xl font-bold text-amber-900">Los Naranjos</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-amber-900 font-medium hover:text-amber-700">Inicio</a>
+                <a href="menu.html" class="text-amber-900 font-medium hover:text-amber-700">Menú</a>
+                <a href="reservations.html" class="text-amber-900 font-medium hover:text-amber-700">Reservas</a>
+                <a href="#" class="text-amber-900 font-medium hover:text-amber-700">Nosotros</a>
+                <a href="#" class="text-amber-900 font-medium hover:text-amber-700">Contacto</a>
+                <a href="sistema.html" class="text-amber-900 font-medium hover:text-amber-700">Sistema</a>
+            </nav>
+            <button class="btn bg-amber-600 hover:bg-amber-700 text-white">Reservar Mesa</button>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold text-center text-amber-900 mb-8">Reserva tu Mesa</h1>
+        <p class="text-center text-amber-700 max-w-2xl mx-auto mb-12">
+            Realiza tu reserva en línea y recibe confirmación instantánea. Nuestro nuevo sistema digital garantiza que tu
+            mesa estará lista cuando llegues.
+        </p>
+
+        <div class="max-w-4xl mx-auto">
+            <div id="reservation-form" class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Nueva Reserva</h2>
+                    <p class="card-description">Completa el formulario para reservar tu mesa en Los Naranjos</p>
+                </div>
+                <form id="booking-form">
+                    <div class="card-content grid gap-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="grid gap-2">
+                                <label for="date" class="label">Fecha</label>
+                                <div class="popover" id="date-popover">
+                                    <button type="button" class="btn-outline w-full justify-start text-left font-normal" id="date-button">
+                                        <svg class="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                                        <span id="selected-date">Selecciona una fecha</span>
+                                    </button>
+                                    <div class="popover-content p-0" id="calendar-container">
+                                        <div class="p-4">
+                                            <div class="flex justify-between items-center mb-4">
+                                                <button type="button" id="prev-month" class="btn-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="15 18 9 12 15 6"/></svg>
+                                                </button>
+                                                <span id="current-month">Mayo 2025</span>
+                                                <button type="button" id="next-month" class="btn-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="9 18 15 12 9 6"/></svg>
+                                                </button>
+                                            </div>
+                                            <table class="calendar">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Do</th>
+                                                        <th>Lu</th>
+                                                        <th>Ma</th>
+                                                        <th>Mi</th>
+                                                        <th>Ju</th>
+                                                        <th>Vi</th>
+                                                        <th>Sa</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="calendar-body">
+                                                    <!-- Calendar will be generated by JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="date" name="date">
+                            </div>
+
+                            <div class="grid gap-2">
+                                <label for="time" class="label">Hora</label>
+                                <div class="select" id="time-select">
+                                    <button type="button" class="select-trigger" id="time-trigger">
+                                        <span id="selected-time">Selecciona una hora</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </button>
+                                    <div class="select-content" id="time-options">
+                                        <!-- Time options will be generated by JavaScript -->
+                                    </div>
+                                </div>
+                                <input type="hidden" id="time" name="time">
+                            </div>
+                        </div>
+
+                        <div class="grid gap-2">
+                            <label for="guests" class="label">Número de personas</label>
+                            <div class="select" id="guests-select">
+                                <button type="button" class="select-trigger" id="guests-trigger">
+                                    <span id="selected-guests">Selecciona el número de personas</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"/></svg>
+                                </button>
+                                <div class="select-content" id="guests-options">
+                                    <!-- Guest options will be generated by JavaScript -->
+                                </div>
+                            </div>
+                            <input type="hidden" id="guests" name="guests" value="2">
+                        </div>
+
+                        <div class="grid gap-4">
+                            <label class="label">Información de contacto</label>
+                            <div class="grid gap-2">
+                                <label for="name" class="sr-only">Nombre completo</label>
+                                <input type="text" id="name" name="name" placeholder="Nombre completo" class="input" required>
+                            </div>
+                            <div class="grid gap-2">
+                                <label for="phone" class="sr-only">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Teléfono" class="input" required>
+                            </div>
+                            <div class="grid gap-2">
+                                <label for="email" class="sr-only">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Email" class="input" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn w-full bg-amber-600 hover:bg-amber-700 text-white">
+                            Confirmar Reserva
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="confirmation" class="card border-green-200 bg-green-50 hidden">
+                <div class="card-header">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h2 class="card-title">¡Reserva Confirmada!</h2>
+                    </div>
+                    <p class="card-description">Tu reserva ha sido registrada exitosamente</p>
+                </div>
+                <div class="card-content grid gap-6">
+                    <div class="bg-white p-6 rounded-lg border border-green-200">
+                        <div class="grid gap-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-muted-foreground">Código de Reserva:</span>
+                                <span class="font-bold text-amber-900" id="reservation-id"></span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-muted-foreground">Nombre:</span>
+                                <span id="confirmation-name"></span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-muted-foreground">Fecha:</span>
+                                <span id="confirmation-date"></span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-muted-foreground">Hora:</span>
+                                <span id="confirmation-time"></span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-muted-foreground">Personas:</span>
+                                <span id="confirmation-guests"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                        <p class="text-amber-800 text-sm">
+                            Hemos enviado un correo de confirmación a <strong id="confirmation-email"></strong>. Por favor, preséntate 5 minutos
+                            antes de la hora reservada y menciona tu código de reserva al anfitrión.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer flex flex-col gap-4">
+                    <button id="new-reservation" class="btn-outline w-full border-amber-600 text-amber-600 hover:bg-amber-50">
+                        Hacer otra reserva
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (igual que en index.html) -->
+    <footer class="bg-amber-900 text-amber-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                        <h3 class="text-xl font-bold">Los Naranjos</h3>
+                    </div>
+                    <p>Restaurante familiar con la mejor gastronomía en La Florida.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <p class="mb-2">Dirección: Av. Principal 123, La Florida</p>
+                    <p class="mb-2">Teléfono: (2) 2345-6789</p>
+                    <p>Email: contacto@losnaranjos.cl</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="menu.html" class="hover:text-white">Menú Digital</a>
+                        </li>
+                        <li>
+                            <a href="reservations.html" class="hover:text-white">Sistema de Reservas</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-white">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-8 text-center">
+                <p>&copy; 2025 Restaurante Los Naranjos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/reservations.js"></script>
+</body>
+</html>

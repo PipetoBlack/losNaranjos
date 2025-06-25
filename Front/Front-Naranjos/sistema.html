@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Integrado - Los Naranjos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (igual que en index.html) -->
+    <header class="bg-amber-50 border-b">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <svg class="h-8 w-8 text-amber-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                <h1 class="text-2xl font-bold text-amber-900">Los Naranjos</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-amber-900 font-medium hover:text-amber-700">Inicio</a>
+                <a href="menu.html" class="text-amber-900 font-medium hover:text-amber-700">Menú</a>
+                <a href="reservations.html" class="text-amber-900 font-medium hover:text-amber-700">Reservas</a>
+                <a href="#" class="text-amber-900 font-medium hover:text-amber-700">Nosotros</a>
+                <a href="#" class="text-amber-900 font-medium hover:text-amber-700">Contacto</a>
+                <a href="sistema.html" class="text-amber-900 font-medium hover:text-amber-700">Sistema</a>
+            </nav>
+            <button class="btn bg-amber-600 hover:bg-amber-700 text-white">Reservar Mesa</button>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-amber-900 mb-8">Sistema de Gestión de Pedidos</h1>
+
+        <div class="tabs space-y-8">
+            <div class="tabs-list grid grid-cols-2 w-full max-w-sm mx-auto">
+                <button type="button" class="tab-trigger active" data-tab="waiter">Vista Mozo</button>
+                <button type="button" class="tab-trigger" data-tab="kitchen">Vista Cocina</button>
+            </div>
+
+            <div class="tab-content" data-tab="overview" style="display: none;">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Flujo de Trabajo</h2>
+                            <p class="card-description">Cómo funciona el sistema integrado</p>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                    <span class="bg-amber-200 text-amber-800 w-6 h-6 rounded-full flex items-center justify-center text-sm">
+                                        1
+                                    </span>
+                                    El mozo toma el pedido digitalmente
+                                </h3>
+                                <p class="text-sm text-amber-800">
+                                    El mozo selecciona la mesa y registra el pedido del cliente usando la interfaz digital, incluyendo
+                                    notas especiales y modificaciones.
+                                </p>
+                            </div>
+
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                    <span class="bg-amber-200 text-amber-800 w-6 h-6 rounded-full flex items-center justify-center text-sm">
+                                        2
+                                    </span>
+                                    El pedido se envía a cocina automáticamente
+                                </h3>
+                                <p class="text-sm text-amber-800">
+                                    Al confirmar el pedido, este se envía instantáneamente a la pantalla de cocina en un formato
+                                    estandarizado y legible.
+                                </p>
+                            </div>
+
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                    <span class="bg-amber-200 text-amber-800 w-6 h-6 rounded-full flex items-center justify-center text-sm">
+                                        3
+                                    </span>
+                                    La cocina actualiza el estado del pedido
+                                </h3>
+                                <p class="text-sm text-amber-800">
+                                    El personal de cocina actualiza el estado de cada ítem (en preparación, listo) a medida que avanza
+                                    la preparación.
+                                </p>
+                            </div>
+
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                    <span class="bg-amber-200 text-amber-800 w-6 h-6 rounded-full flex items-center justify-center text-sm">
+                                        4
+                                    </span>
+                                    El mozo recibe notificaciones de pedidos listos
+                                </h3>
+                                <p class="text-sm text-amber-800">
+                                    El mozo es notificado cuando los pedidos están listos para ser servidos y actualiza el estado a
+                                    "entregado" una vez servido.
+                                </p>
+                            </div>
+
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                    <span class="bg-amber-200 text-amber-800 w-6 h-6 rounded-full flex items-center justify-center text-sm">
+                                        5
+                                    </span>
+                                    Generación de cuenta y pago
+                                </h3>
+                                <p class="text-sm text-amber-800">
+                                    Al finalizar, el sistema genera automáticamente la cuenta con todos los ítems consumidos y sus
+                                    precios correctos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Beneficios del Sistema</h2>
+                            <p class="card-description">Mejoras en la experiencia del cliente</p>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Eliminación de errores en pedidos</h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        Los pedidos digitales eliminan problemas de legibilidad y comunicación entre el mozo y la cocina.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Reducción en tiempos de espera</h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        La comunicación instantánea entre mozo y cocina reduce significativamente los tiempos de espera.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Transparencia en precios y cobros</h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        Precios estandarizados y cálculo automático de cuentas elimina errores en cobros.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Gestión eficiente de reservas</h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        Sistema digital de reservas elimina confusiones y garantiza que las mesas estén disponibles.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Claridad en roles y responsabilidades</h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        El sistema define claramente los roles de cada miembro del personal, mejorando la coordinación.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Análisis de datos para mejora continua</h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        El sistema recopila datos que permiten analizar patrones y mejorar constantemente el servicio.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content active" data-tab="waiter">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Mesas -->
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4">Mesas</h2>
+                        <div class="grid grid-cols-2 gap-3" id="waiter-tables">
+                            <!-- Tables will be generated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Pedido Actual -->
+                    <div class="md:col-span-2">
+                        <div id="waiter-table-detail">
+                            <div class="flex items-center justify-center h-full">
+                                <div class="text-center p-8">
+                                    <svg class="h-12 w-12 mx-auto text-muted-foreground opacity-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                                    <h3 class="mt-4 text-lg font-medium">Seleccione una mesa</h3>
+                                    <p class="text-muted-foreground">Elija una mesa para ver o crear pedidos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab="kitchen">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Pedidos Pendientes -->
+                    <div class="card">
+                        <div class="card-header bg-red-50">
+                            <h2 class="card-title flex items-center gap-2">
+                                <span class="bg-red-100 p-1 rounded">
+                                    <svg class="h-5 w-5 text-red-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </span>
+                                Pedidos Pendientes
+                            </h2>
+                            <p class="card-description">Esperando preparación</p>
+                        </div>
+                        <div class="card-content p-4">
+                            <div class="space-y-4 max-h-500 overflow-y-auto pr-2" id="pending-orders">
+                                <!-- Pending orders will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos en Preparación -->
+                    <div class="card">
+                        <div class="card-header bg-blue-50">
+                            <h2 class="card-title flex items-center gap-2">
+                                <span class="bg-blue-100 p-1 rounded">
+                                    <svg class="h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12"/><path d="M6 12h12"/><path d="M6 16h12"/><path d="M16 2v20"/></svg>
+                                </span>
+                                En Preparación
+                            </h2>
+                            <p class="card-description">Actualmente en cocina</p>
+                        </div>
+                        <div class="card-content p-4">
+                            <div class="space-y-4 max-h-500 overflow-y-auto pr-2" id="preparing-orders">
+                                <!-- Preparing orders will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedidos Listos -->
+                    <div class="card">
+                        <div class="card-header bg-green-50">
+                            <h2 class="card-title flex items-center gap-2">
+                                <span class="bg-green-100 p-1 rounded">
+                                    <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </span>
+                                Pedidos Listos
+                            </h2>
+                            <p class="card-description">Esperando ser servidos</p>
+                        </div>
+                        <div class="card-content p-4">
+                            <div class="space-y-4 max-h-500 overflow-y-auto pr-2" id="ready-orders">
+                                <!-- Ready orders will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-6">
+                    <div class="card-header">
+                        <h2 class="card-title">Historial de Pedidos Entregados</h2>
+                        <p class="card-description">Pedidos completados en las últimas 2 horas</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="space-y-4" id="delivered-orders">
+                            <!-- Delivered orders will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (igual que en index.html) -->
+    <footer class="bg-amber-900 text-amber-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                        <h3 class="text-xl font-bold">Los Naranjos</h3>
+                    </div>
+                    <p>Restaurante familiar con la mejor gastronomía en La Florida.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <p class="mb-2">Dirección: Av. Principal 123, La Florida</p>
+                    <p class="mb-2">Teléfono: (2) 2345-6789</p>
+                    <p>Email: contacto@losnaranjos.cl</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="menu.html" class="hover:text-white">Menú Digital</a>
+                        </li>
+                        <li>
+                            <a href="reservations.html" class="hover:text-white">Sistema de Reservas</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-white">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-8 text-center">
+                <p>&copy; 2025 Restaurante Los Naranjos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/sistema.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Digital - Los Naranjos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (igual que en index.html) -->
+    <header class="bg-amber-50 border-b">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <svg class="h-8 w-8 text-amber-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                <h1 class="text-2xl font-bold text-amber-900">Los Naranjos</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-amber-900 font-medium hover:text-amber-700">Inicio</a>
+                <a href="menu.html" class="text-amber-900 font-medium hover:text-amber-700">Menú</a>
+                <a href="reservations.html" class="text-amber-900 font-medium hover:text-amber-700">Reservas</a>
+                <a href="#" class="text-amber-900 font-medium hover:text-amber-700">Nosotros</a>
+                <a href="#" class="text-amber-900 font-medium hover:text-amber-700">Contacto</a>
+                <a href="sistema.html" class="text-amber-900 font-medium hover:text-amber-700">Sistema</a>
+            </nav>
+            <button class="btn bg-amber-600 hover:bg-amber-700 text-white">Reservar Mesa</button>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold text-center text-amber-900 mb-8">Menú Digital</h1>
+        <p class="text-center text-amber-700 max-w-2xl mx-auto mb-12">
+            Explore nuestra carta digital y descubra nuestras deliciosas opciones. Puede ordenar directamente desde su mesa
+            escaneando el código QR.
+        </p>
+
+        <div class="tabs max-w-4xl mx-auto">
+            <div class="tabs-list grid grid-cols-3 md:grid-cols-6 mb-8">
+                <button type="button" class="tab-trigger active flex flex-col items-center gap-1 py-3" data-tab="platos-principales">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                    <span>Platos</span>
+                </button>
+                <button type="button" class="tab-trigger flex flex-col items-center gap-1 py-3" data-tab="entradas">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    <span>Entradas</span>
+                </button>
+                <button type="button" class="tab-trigger flex flex-col items-center gap-1 py-3" data-tab="bebestibles">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 10v12"/><path d="M12 2c4 0 7 2 7 5s-3 5-7 5-7-2-7-5 3-5 7-5Z"/></svg>
+                    <span>Bebidas</span>
+                </button>
+                <button type="button" class="tab-trigger flex flex-col items-center gap-1 py-3" data-tab="postres">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5a10 10 0 0 0 11 11"/></svg>
+                    <span>Postres</span>
+                </button>
+                <button type="button" class="tab-trigger flex flex-col items-center gap-1 py-3" data-tab="cafeteria">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+                    <span>Café</span>
+                </button>
+            </div>
+
+            <div id="menu-content" class="space-y-4">
+                <!-- Menu items will be generated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (igual que en index.html) -->
+    <footer class="bg-amber-900 text-amber-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                        <h3 class="text-xl font-bold">Los Naranjos</h3>
+                    </div>
+                    <p>Restaurante familiar con la mejor gastronomía en La Florida.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <p class="mb-2">Dirección: Av. Principal 123, La Florida</p>
+                    <p class="mb-2">Teléfono: (2) 2345-6789</p>
+                    <p>Email: contacto@losnaranjos.cl</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="menu.html" class="hover:text-white">Menú Digital</a>
+                        </li>
+                        <li>
+                            <a href="reservations.html" class="hover:text-white">Sistema de Reservas</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-white">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-8 text-center">
+                <p>&copy; 2025 Restaurante Los Naranjos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>
