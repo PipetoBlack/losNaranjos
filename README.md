@@ -25,12 +25,7 @@ Aplicación web desarrollada como proyecto académico para el curso de Ingenier�
 - Registro automático si no hay mesas.
 - Aviso al cliente cuando se libera una mesa.
 
-### 5. 💳 **Pago Digital**
-- Desglose de total con propina e IVA.
-- Métodos: tarjeta, QR, transferencia.
-- Generación de comprobante.
-
-### 6. 👥 **Gestión de Empleados**
+### 5. 👥 **Gestión de Empleados**
 - Roles: mozo, chef, administrador.
 - Planificación de turnos por perfil.
 
