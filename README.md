@@ -26,7 +26,7 @@ Aplicación web desarrollada como proyecto académico para el curso de Ingenier�
 - Aviso al cliente cuando se libera una mesa.
 
 ### 5. 👥 **Gestión de Empleados**
-- Roles: mozo, chef, administrador.
+- Roles: mozo, cocina, bartender, anfitrion, administrador.
 - Planificación de turnos por perfil.
 
 ---
@@ -88,6 +88,23 @@ Asegúrate de tener lo siguiente instalado:
    ```bash
    npx ts-node src/index.ts
    ```
+
+---
+
+## 🔐 Acceso por Roles (Pruebas)
+
+Para probar las diferentes funcionalidades según el tipo de usuario, puedes iniciar sesión con los siguientes correos predefinidos (no es necesario ingresar contraseña si no está implementada la autenticación real):
+
+| Rol          | Formato de Correo               |
+|--------------|---------------------------------|
+| Administrador| `a@admin.com`                   |
+| Anfitrión    | `b@anfitrion.com`               |
+| Mozo         | `c@mozo.com`                    |
+| Chef         | `d@cocina.com`                  |
+| Bartender    | `e@bar.com`                     |
+| Cliente      | Cualquier correo `@gmail.com`   |
+
+> ⚠️ Nota: El sistema reconoce el tipo de usuario en base al dominio del correo ingresado. Los correos con `@gmail.com` serán tratados como clientes, mientras que los demás corresponden a roles internos del restaurante.
 
 ---
 
